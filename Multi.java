@@ -6,27 +6,41 @@ public class Multi {
 	public static void main(String[] args) {
 
 		
+		Shutdownhook s =new Shutdownhook();
+		Runtime r = Runtime.getRuntime();
 		
-		ThreadGDemo t = new ThreadGDemo();
-		ThreadGroup tg = new ThreadGroup("parent group 1");
+		r.addShutdownHook(s);
 		
-		Thread t1 = new Thread(tg , t, "thread101");
-		Thread t2 = new Thread(tg , t, "thread102");
-		Thread t3 = new Thread(tg , t, "thread103");
-		Thread t4 = new Thread(tg , t, "thread104");
-		Thread t5 = new Thread(tg , t, "thread105");
-		
-		
-		t1.start();
-		t2.start();
-		t3.start();
-		t4.start();
-		t5.start();
-		
-		System.out.println("ThreadGroup name : "+ tg.getName());
-		tg.list();
+		System.out.println("Now main sleeping ... ctrl+c to exit");
+		try {
+				 Thread.sleep(1000) ;
+		}
 		
 		
+		catch(Exception e) {e.printStackTrace();}
+		
+		
+		
+//		ThreadGDemo t = new ThreadGDemo();
+//		ThreadGroup tg = new ThreadGroup("parent group 1");
+//		
+//		Thread t1 = new Thread(tg , t, "thread101");
+//		Thread t2 = new Thread(tg , t, "thread102");
+//		Thread t3 = new Thread(tg , t, "thread103");
+//		Thread t4 = new Thread(tg , t, "thread104");
+//		Thread t5 = new Thread(tg , t, "thread105");
+//		
+//		
+//		t1.start();
+//		t2.start();
+//		t3.start();
+//		t4.start();
+//		t5.start();
+//		
+//		System.out.println("ThreadGroup name : "+ tg.getName());
+//		tg.list();
+//		
+//		
 //		A q[] = new A[15];
 //	
 //		ExecutorService pool = Executors.newFixedThreadPool(11);
