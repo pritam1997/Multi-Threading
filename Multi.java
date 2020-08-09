@@ -6,20 +6,41 @@ public class Multi {
 	public static void main(String[] args) {
 
 		
-		A q[] = new A[15];
-	
-		ExecutorService pool = Executors.newFixedThreadPool(11);
-		for(int i=1; i<15; i++) {
-			
-			q[i] = new A();
-			
-			pool.execute(q[i]);
-		}
+		
+		ThreadGDemo t = new ThreadGDemo();
+		ThreadGroup tg = new ThreadGroup("parent group 1");
+		
+		Thread t1 = new Thread(tg , t, "thread101");
+		Thread t2 = new Thread(tg , t, "thread102");
+		Thread t3 = new Thread(tg , t, "thread103");
+		Thread t4 = new Thread(tg , t, "thread104");
+		Thread t5 = new Thread(tg , t, "thread105");
 		
 		
-		pool.shutdown();
-		while( !pool.isShutdown() ) {}
-	System.out.println("shutdown");
+		t1.start();
+		t2.start();
+		t3.start();
+		t4.start();
+		t5.start();
+		
+		System.out.println("ThreadGroup name : "+ tg.getName());
+		tg.list();
+		
+		
+//		A q[] = new A[15];
+//	
+//		ExecutorService pool = Executors.newFixedThreadPool(11);
+//		for(int i=1; i<15; i++) {
+//			
+//			q[i] = new A();
+//			
+//			pool.execute(q[i]);
+//		}
+//		
+//		
+//		pool.shutdown();
+//		while( !pool.isShutdown() ) {}
+//	System.out.println("shutdown");
 		
 //		R o = new R();
 //		R o2 = new R();
